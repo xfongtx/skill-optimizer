@@ -1,0 +1,149 @@
+
+== 体量（常驻 SKILL.md 先看；其余按行数排，大的先问：常驻还是命中才读） ==
+    511  SKILL.md（常驻）
+     245   tools/check-skill-repo.sh
+     167   tools/scaffold-skill.sh
+     130   references/house-style.md
+      77   examples/ai-news-radar-case.md
+      52   references/birth-checklist.md
+
+== 硬性措辞密度（必须／一律／不可／绝不／禁止／永远／MUST／NEVER／ALWAYS）—— 数量不是病，每一条问出身 ==
+    24  SKILL.md
+     1  references/house-style.md
+     1  references/birth-checklist.md
+     1  examples/ai-news-radar-case.md
+
+== 历史残留候选（已移除／不再／旧版已／原来是／改成了／已废弃）—— 文档只描述现状 ==
+  无
+
+== 并行编号候选（U1／D3／C4 式前缀编号，同前缀 ≥3 个）—— 掩盖了本可由定律推出的规则 ==
+  P: P0 P1 P2
+
+== 失效的相对链接（指向不存在的文件） ==
+  references/house-style.md → skills/{{name}}/SKILL.md
+
+== 孤儿文件候选（目录内零引用；已跳过 evals／assets／agents／eval-viewer／LICENSE 等由脚本或 harness 消费的约定路径）—— 仍需排除：frontmatter 直接加载、别的 skill 按名编排、外部记忆指针 ==
+  无
+
+== frontmatter description（常驻程度最高的一行）—— 按分支过，见 SKILL.md「指针先于内联」 ==
+  688 字
+  鲁班（Luban）——Skill打磨工坊。把一个"能用的Skill"打磨成"能被理解、能被安装、能被传播、能被验证、能持续进化"的公共Skill资产。 方法论是工匠式的五个动作：验料（先挑战这个Skill的前提是否成立，不值得雕的料直说）、访行（联网寻找同类Skill，看清自己在生态里站什么位置）、过尺（结构、实测、活体三把尺一起量——活体指拉真实运行产物对账，绿色的CI会撒谎）、慢刨（冻结原版做基线，改动必须通过验证门才保留，否则回刀；验证手段尽量沉淀为仓库里的工具和规矩）、回炉（发布不是终点，留对标观察清单，下一轮从真实反馈进）。 当用户想要升级、优化、打磨、产品化、发布自己开发的Skill时使用。最终产出一份结构化的《Skill打磨报告》、可直接替换的改写片段，以及一张可截图传播的"出师证书"结果卡。 触发词包括但不限于：让鲁班看看这个skill、班门打磨、打磨我的skill、升级我的skill、优化这个skill、skill体检、skill审计、产品化我的skill、这个skill怎么发布、对标一下同类skill、为什么我的skill没人装、帮我把skill发到GitHub/ClawHub、改进SKILL.md。 即使用户只是丢来一个Skill目录、GitHub仓库链接或一段SKILL.md说"帮我看看怎么改"，只要上下文是想让Skill变得更好用、更可传播，都应该触发。 不要用于从零创建一个新Skill（用skill-creator）、不要用于普通的代码review（用code-review）、不要用于改写一段和Skill资产无关的普通提示语。
+
+== 指针行（markdown 链接或反引号里的文件名，连同所在行）—— 逐行问：写没写什么情况下读；只有「另见」的，目标文件基本没人读 ==
+  references/house-style.md:19:10. **双语策略。** 中文为主 `README.md`,有外部受众时配 `README.en.md`,首行互链:`<sub>🌐 <b>中文</b> · <a href="README.en.md">English</a></sub>`。
+  references/house-style.md:34:[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-{{name}}-blueviolet)](skills/{{name}}/SKILL.md)
+  references/birth-checklist.md:10:- [ ] **README 按 house 模板**:引语钩子、人感开场、产物前置、锚点导航(见 `house-style.md`)
+  references/birth-checklist.md:14:- [ ] **`.claude-plugin/marketplace.json`**:plugin marketplace 双通道
+  examples/ai-news-radar-case.md:51:- 一次性的对比脚本固化成 `scripts/backtest_scoring.py`：任意两个 git 版本的评分逻辑在档案上重放。首份报告：**83,725 条回放，URL修复累计清除 327 条假AI，救回 4 条 `A.I.` 风格标题**。
+  examples/ai-news-radar-case.md:77:- **下一轮入口**：Claude Code plugin marketplace 清单（`.claude-plugin/marketplace.json`）；翻译标题丢AI信号的边界召回（等回测工具积累几轮数据再决定阈值）。
+  SKILL.md:39:完整的实战案例（真实仓库、真实数字、全程可查证）见 `examples/ai-news-radar-case.md`——拿不准某一步该做到什么深度时，对照它。
+  SKILL.md:45:- `SKILL.md`、`README.md`
+  SKILL.md:47:- `test-prompts.json`或等价测试样例
+  SKILL.md:52:发布就绪项的核对底线见 `references/birth-checklist.md`(出生证清单)——缺的每一项都是现成的差距条目。
+  SKILL.md:333:完整的README模板与十条风格铁律见 `references/house-style.md`;给全新的Skill开料(生成出生即合规的仓库骨架)用 `tools/scaffold-skill.sh`;发布前对照 `references/birth-checklist.md` 逐项打勾。
+
+== SKILL.md 里的步骤起始行 —— 顺着读到句尾，问：agent 能不能判断这一步做完了 ==
+  21:1. **掌柜**（产品经理）：判断这件工具到底解决谁的什么问题，为什么值得安装。
+  22:2. **行脚**（生态研究员）：在GitHub、ClawHub、skills.sh、Tessl等生态中寻找同类Skill，分析它们凭什么被理解、收藏、安装、传播。
+  23:3. **量尺师傅**（审计员）：用结构评分 + 实测表现双轨评估，找出最该优先打磨的面。
+  24:4. **刨工**（优化器）：做有边界的候选编辑，只接受能通过验证门的改动。
+  25:5. **摆活儿的**（README与Showcase导演）：把Skill包装成别人愿意停下来看、看完想装的公共资产。
+  33:1. **目标Skill**：本地Skill目录路径 / GitHub仓库链接 / ClawHub页面 / 一段SKILL.md正文 / 一个还没成型的Skill想法
+  34:2. **目标发布平台**（可选）：GitHub / ClawHub / skills.sh / Tessl / 私用
+  35:3. **用户优先级**（可选）：传播力 / 实测效果 / 安装率 / 跨runtime兼容 / README表达 / showcase强度
+  77:## 第一步：验料——Skill前提挑战
+  81:1. **真实问题**：这个Skill解决的真实用户问题是否成立？
+  82:2. **独特角度**：它的唯一性来自方法论、脚本资产、私有经验、数据、工作流还是展示效果？如果没有唯一性，直接指出同质化风险。
+  83:3. **安装理由**：用户为什么要安装它，而不是临时问Agent？
+  84:4. **公共传播性**：它有没有一句话传播钩子？有没有可截图、可录屏、可展示的结果？
+  89:## 1. 验料结果（Skill前提挑战）
+  103:## 第二步：访行——同类Skill横向搜索
+  136:## 2. 访行记录（同类Skill横向对标）
+  145:## 第三步：定位——纵看来路，横看行情
+  174:## 3. 生态位判断
+  184:## 第四步：过尺——活体检查 + 九维评分
+  202:## 4. 过尺结果（当前Skill质量评分）
+  227:## 第五步：开工单——差距清单与三个打磨方向
+  234:## 5. 差距清单
+  246:1. ...
+  249:1. ...
+  257:## 6. 三个打磨方向
+  276:## 第六步：慢刨——验证门候选改写
+  285:## 7. 候选改写方案
+  329:## 第七步：亮活——README与Showcase升级
+  359:1. **GIF**：30秒内展示从输入到结果；
+  360:2. **截图**：首屏效果、最终产物、关键diff；
+  361:3. **示例输出**：真实运行产物，不要只放虚构样例；
+  362:4. **对比图**：打磨前/打磨后；
+  363:5. **结果卡片**：分数变化、主要改进、下一步。
+  367:## 第八步：交活——执行计划与打磨报告
+  372:## 9. 执行计划
+  392:## 10. 出师证书
+  414:## 1. 验料结果（Skill前提挑战）
+  415:## 2. 访行记录（同类Skill横向对标）
+  416:## 3. 生态位判断
+  417:## 4. 过尺结果（活体检查 + 质量评分）
+  418:## 5. 差距清单
+  419:## 6. 三个打磨方向
+  420:## 7. 候选改写方案
+  421:## 8. README与Showcase升级建议
+  422:## 9. 执行计划
+  423:## 10. 出师证书
+  424:## 11. 回炉清单（对标观察 + 迭代纪律 + 本轮不做）
+  425:## 12. 需要用户确认的问题（最多3个，必须是影响方向的问题）
+  426:## 13. 附录：参考来源（所有同类Skill的URL）
+  431:## 第九步：回炉——发布不是终点
+  435:1. **留对标观察清单**：访行时发现的同行里，哪几个的哪些动作值得持续盯（它们的changelog、新功能、用户反馈渠道）。用户下次带着"你看XX又做了YY"回来时，从这里接，不从零验料。
+  436:2. **立迭代纪律**：学透明迭代叙事——发版要有release notes/changelog，讲清"为什么改"而不只是"改了什么"；本轮沉淀的验证工具和明文规矩（见验证资产沉淀）写进项目文档。
+  437:3. **标注下一轮入口**：本轮"不做"清单 + 已知边界损耗（如召回的边界案例），明确写下来，下一轮直接从这里开刀。
+  445:1. 验料判定"朽木，建议换料重雕"时；
+  446:2. 访行发现当前方向同质化严重时；
+  447:3. 准备从单Skill升级为Skill套件时；
+  448:4. 准备新增高风险脚本、删除逻辑、外部API调用时；
+  449:5. 候选改写会大幅改变Skill定位时；
+  450:6. **merge到默认分支、打tag发版、任何对真实用户可见的部署**——这三个动作每一次都需要明确授权。
+
+== 所有含「默认」的行（人工比对：有没有两处对同一件事给出相反默认） ==
+  references/birth-checklist.md:16:- [ ] **LICENSE**:默认 MIT
+  references/birth-checklist.md:25:- [ ] merge 到默认分支
+  examples/ai-news-radar-case.md:16:对标了 6+ 个同行（全部带URL核实星数）：aihot（中心化API路线，消费侧体验标杆）、CloudFlare-AI-Insight-Daily（⭐1.6k，强依赖Gemini key）、last30days-skill（⭐38.9k，表达天花板：宣言式README+一行安装+零配置分层）、若干 <50 星的同类（反面教材：没有差异化叙事的 AI ne
+  SKILL.md:64:- **默认面向跨Agent生态。** 尽量兼容Claude Code、Codex、OpenCode、OpenClaw、Hermes等Skill-compatible runtime，除非用户明确只要单一runtime。
+  SKILL.md:272:**在这里停手，等用户选方向。** 如果用户明确说不用等，默认执行方案A；当前Skill基础较好时默认方案B。
+  SKILL.md:450:6. **merge到默认分支、打tag发版、任何对真实用户可见的部署**——这三个动作每一次都需要明确授权。
+  SKILL.md:485:- 不要用`git reset --hard`当默认回刀方案；如涉及git，优先用可审计的diff或revert思路。
+
+== 委托句候选（由你决定／可以是 A 或 B／视情况／酌情）—— 写给读 skill 的推理模型是留白，写进给生成模型的产出是病 ==
+  无
+
+== SKILL.md 里的输出契约行（输出／交付／附上／必须包含／自检／决策记录）—— 最常见的真实收益点：这一行要求的是交付物本体吗 ==
+  48:- 安装说明、demo/showcase截图、GIF、输出样例
+  52:发布就绪项的核对底线见 `references/birth-checklist.md`(出生证清单)——缺的每一项都是现成的差距条目。
+  86:输出格式（必须简短，先给结论）：
+  133:输出格式：
+  171:输出格式：
+  192:- **真实渲染**：如果有页面/输出物，在桌面和移动两档宽度下真实打开看一遍，截图留证。
+  197:结构尺的底线项先一键体检：`bash tools/check-skill-repo.sh <目标路径或GitHub仓库链接>`——输出 PASS/WARN/FAIL 加出生证段，FAIL/WARN 直接转成差距清单条目，不要靠肉眼逐项数。
+  231:输出"我们缺什么"，不要泛泛而谈：
+  282:输出格式：
+  309:- 至少2个典型测试prompt输出优于冻结基线；
+  323:验证不该是打磨时的脚手架，它应该是交付物的一部分——这是把棘轮拧进目标项目本身，下一个维护者（包括未来的你）直接继承。
+  333:完整的README模板与十条风格铁律见 `references/house-style.md`;给全新的Skill开料(生成出生即合规的仓库骨架)用 `tools/scaffold-skill.sh`;发布前对照 `references/birth-checklist.md` 逐项打勾。
+  345:## 它会交付什么？            ← 展示最终产物：报告/PDF/HTML/卡片/diff/截图/GIF
+  348:## 示例                      ← 输入 → 执行过程摘要 → 输出片段/截图
+  352:## 验证与测试                ← 给测试prompt和期望输出
+  361:3. **示例输出**：真实运行产物，不要只放虚构样例；
+  462:**方法论型Skill**（编码一套分析/写作/决策框架）：重点查工作流清晰度、输出模板质量、反例黑名单；访行重点看方法论的故事感和可验证产物。
+  494:交活前自检。一件打磨好的Skill，至少要答清楚6个问题：**谁会用？为什么装而不是临时问Agent？怎么触发？交付什么可见产物？比同行强在哪？怎么证明？** 答不清楚就不要建议发布。
+
+== description 常驻税（全库范围：估算 token、排名、合计）—— 每个会话都付，单个 skill 的体检看不见 ==
+  本条 ~389 token / 690 字符，. 下 2 个 skill 中排第 1；全库 description 合计 ~506 token
+  最重的五条：before ~389，after ~117
+
+== 跨 skill 触发重叠（本 description 的短语也出现在库内其他 description 里）—— 每个短语只该归一个 skill ==
+  「可直接替换的改写片段」 也在: after
+  「出师证书」 也在: after
+  「打磨成」 也在: after
+  「产品化」 也在: after
+  「把一个」 也在: after
+  「鲁班」 也在: after
+  「打磨」 也在: after
