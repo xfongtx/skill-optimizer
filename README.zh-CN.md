@@ -7,7 +7,7 @@
 > *留下的每条规则都说得出为什么在，删掉的每条规则都记下去了哪里。*
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-skill--optimizer-blueviolet)](skills/skill-optimizer/SKILL.md)
-[![skills.sh](https://skills.sh/b/xfongtx/skill-optimizer)](https://skills.sh/xfongtx/skill-optimizer)
+[![skills.sh](https://img.shields.io/badge/skills.sh-npx%20skills%20add-black)](#安装)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **校准一个已经能用的 agent skill：删掉堆积的规则、自相矛盾和给旧模型的搀扶，保住环境事实和你锁定的规则。**

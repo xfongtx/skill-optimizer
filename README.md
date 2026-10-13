@@ -7,7 +7,7 @@
 > *Every rule that stays can say why it is there. Every rule that goes has a recorded destination.*
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-skill--optimizer-blueviolet)](skills/skill-optimizer/SKILL.md)
-[![skills.sh](https://skills.sh/b/xfongtx/skill-optimizer)](https://skills.sh/xfongtx/skill-optimizer)
+[![skills.sh](https://img.shields.io/badge/skills.sh-npx%20skills%20add-black)](#install)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Calibrates an agent skill that already works: removes piled-up rules, contradictions and old-model hand-holding, and keeps the environment facts and the rules you locked.**
